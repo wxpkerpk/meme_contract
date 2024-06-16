@@ -89,11 +89,11 @@ pub struct CreateMemecoinConfig<'info> {
     pub global_config: Box<Account<'info, GlobalConfig>>,
 
     pub rent: Sysvar<'info, Rent>,
-    pub clock: Sysvar<'info, Clock>,
+    //pub clock: Sysvar<'info, Clock>,
     pub system_program: Program<'info, System>,
     pub token_program: Program<'info, Token>,
     pub token_metadata_program: Program<'info, Metadata>,
-    pub associated_token_program: Program<'info, AssociatedToken>,
+    //pub associated_token_program: Program<'info, AssociatedToken>,
 }
 
 #[event]
@@ -126,7 +126,8 @@ pub fn handler(
     funding_raise_tier: u8
 ) -> Result<()> {
     let creator = &ctx.accounts.creator.key();
-    let current_timestamp = ctx.accounts.clock.unix_timestamp as u64;
+    //let current_timestamp = ctx.accounts.clock.unix_timestamp as u64;
+    let current_timestamp = 0u64;
 
     // Charge for the create memecoin fee
     let transfer_instruction = lamports_transfer(
